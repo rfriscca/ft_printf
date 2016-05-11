@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/09 16:34:58 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/10 15:46:17 by rfriscca         ###   ########.fr       */
+/*   Created: 2016/05/10 15:32:58 by rfriscca          #+#    #+#             */
+/*   Updated: 2016/05/10 15:34:18 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
+#include "ft_printf.h"
 
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-// delete this later
-# include <stdio.h>
-
-void	ft_putchar(char c);
-void	ft_putstr(char *str);
-int		ft_isdigit(char c);
-int		ft_printf(char const * restrict format, ...);
-int		ft_atoi(const char *str);
-
-#endif
+int		ft_isdigit(char c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}

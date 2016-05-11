@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/09 16:34:58 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/10 15:46:17 by rfriscca         ###   ########.fr       */
+/*   Created: 2016/05/10 13:12:54 by rfriscca          #+#    #+#             */
+/*   Updated: 2016/05/10 13:14:25 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
+# include "ft_printf.h"
 
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
-// delete this later
-# include <stdio.h>
+void	ft_putstr(char *str)
+{
+	int		i;
 
-void	ft_putchar(char c);
-void	ft_putstr(char *str);
-int		ft_isdigit(char c);
-int		ft_printf(char const * restrict format, ...);
-int		ft_atoi(const char *str);
-
-#endif
+	i = 0;
+	while (str[i])
+	{
+		ft_putchar(str[i]);
+	}
+}
