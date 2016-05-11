@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/10 14:25:13 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/10 15:08:04 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/11 16:36:09 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int		main(void)
 {
-	ft_printf("%0 #");
+	ft_printf("%s deuxieme test %s", "test", "essai");
 	return (0);
 }

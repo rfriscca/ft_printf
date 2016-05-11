@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 16:42:43 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/10 16:17:36 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/11 16:18:12 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ int		ft_find_size(const char * restrict format, int *i)
 	int size;
 
 	size = 0;
-	while (ft_isdigit(format[i + 1]))
+	while (format[*i + 1] >= '0' && format[*i + 1] <= '9')
 	{
 		size = size * 10;
-		size += ft_atoi(format[i + 1]);
-		++i;
+		size += format[*i + 1] - '0';
+		++*i;
 	}
 	return (size);
 }
@@ -54,7 +54,9 @@ int		event(const char * restrict format, va_list valist, int	i)
 {
 	int		size_min;
 	int		size_max;
+	char	save;
 
+	save = 0;
 	size_min = 0;
 	size_max = 0;
 	while (flags(format[i + 1], save))
@@ -66,7 +68,8 @@ int		event(const char * restrict format, va_list valist, int	i)
 	if (format[i + 1] == '.')
 		++i;
 	size_max = ft_find_size(format, &i);
-	ft_format(format[i + 1]);
+	ft_find_format(format[i + 1], valist);
+	i = i + 2;
 	return (i);
 }
 
@@ -74,16 +77,16 @@ int		ft_printf(const char * restrict format, ...)
 {
 	va_list	valist;
 	int		i;
-	char	save;
 
 	i = 0;
-	save = 0;
 	va_start(valist, format);
 	while (format[i])
 	{
 		if (format[i] == '%')
 			i = event(format, valist, i);
-		++i;
+		ft_putchar(format[i]);
+		if (format[i])
+			++i;
 	}
 	va_end(valist);
 	return (0);
