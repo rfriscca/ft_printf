@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/11 12:56:20 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/13 15:32:31 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/13 15:33:45 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ void		ft_find_format(char c, va_list valist, t_stock stock)
 	else
 	{
 		ft_putstr("error");
-		exit (1);
+		exit(1);
 	}
 }
