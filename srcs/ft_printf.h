@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 16:34:58 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/13 15:31:55 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/13 16:44:40 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct	s_stock
 }				t_stock;
 
 int				ft_printf(char const * restrict format, ...);
+int				ft_nbrsize(int nbr);
 void			ft_find_format(char c, va_list valist, t_stock stock);
 void			ft_putspace(int n);
 void			ft_putzero(int n);

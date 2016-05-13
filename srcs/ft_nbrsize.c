@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_nbrsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/10 14:25:13 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/13 16:54:11 by rfriscca         ###   ########.fr       */
+/*   Created: 2016/05/13 16:43:15 by rfriscca          #+#    #+#             */
+/*   Updated: 2016/05/13 16:44:21 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		main(void)
+int		ft_nbrsize(int nbr)
 {
-	ft_printf("%s deuxieme test %d", "test", 2147483648);
-	return (0);
+	int		i;
+
+	i = 0;
+	while (nbr)
+	{
+		nbr = nbr / 10;
+		++i;
+	}
+	return (i);
 }
