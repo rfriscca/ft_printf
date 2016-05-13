@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 16:42:43 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/13 13:13:55 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/13 14:42:28 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int		event(const char * restrict format, va_list valist, int	i)
 	int		size_min;
 	int		size_max;
 	char	save;
+	t_stock	stock;
 
 	save = 0;
 	size_min = 0;
@@ -73,7 +74,8 @@ int		event(const char * restrict format, va_list valist, int	i)
 	if (format[i + 1] == '.')
 		++i;
 	size_max = ft_find_size(format, &i);
-	ft_find_format(format[i + 1], valist, size_min, size_max);
+	stock = data_stock(size_min, size_max, save);
+	ft_find_format(format[i + 1], valist, stock);
 	i = i + 2;
 	return (i);
 }

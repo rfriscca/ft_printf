@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 16:34:58 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/13 12:24:55 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/13 14:45:54 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,17 @@
 // delete this later
 # include <stdio.h>
 
-int		ft_printf(char const * restrict format, ...);
-void	ft_find_format(char c, va_list valist, int size_min, int size_max);
+typedef struct	s_stock
+{
+	int			size_min;
+	int			size_max;
+	char		flags;
+}				t_stock;
+
+int				ft_printf(char const * restrict format, ...);
+void			ft_find_format(char c, va_list valist, t_stock stock);
+void			ft_putspace(int n);
+void			ft_pustrlen(char *str, int i);
+t_stock			data_stock(int size_min, int size_max, char flags);
 
 #endif

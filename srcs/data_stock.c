@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   data_stock.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/10 14:25:13 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/13 14:46:18 by rfriscca         ###   ########.fr       */
+/*   Created: 2016/05/13 14:35:34 by rfriscca          #+#    #+#             */
+/*   Updated: 2016/05/13 14:41:02 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		main(void)
+t_stock		data_stock(int size_min, int size_max, char flags)
 {
-	ft_printf("%4.2s deuxieme test %d", "test", 123);
-	return (0);
+	t_stock stock;
+
+	stock.size_min = size_min;
+	stock.size_max = size_max;
+	stock.flags = flags;
+	return (stock);
 }
