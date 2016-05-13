@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/11 12:56:20 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/13 15:11:49 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/13 15:32:31 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ void		ft_printstr(char *str, t_stock stock)
 		spacenum = stock.size_min - size;
 	if ((stock.flags & 1) == 0)
 	{
-		ft_putspace(spacenum);
+		if ((stock.flags & 2) == 0)
+			ft_putspace(spacenum);
+		else
+			ft_putzero(spacenum);
 		ft_putstrlen(str, size);
 	}
 	else

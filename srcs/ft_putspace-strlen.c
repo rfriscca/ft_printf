@@ -1,19 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putspace.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/10 14:25:13 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/13 15:32:15 by rfriscca         ###   ########.fr       */
+/*   Created: 2016/05/13 14:29:05 by rfriscca          #+#    #+#             */
+/*   Updated: 2016/05/13 15:31:10 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		main(void)
+void	ft_putstrlen(char *str, int i)
 {
-	ft_printf("%04.2s deuxieme test %d", "test", 123);
-	return (0);
+	int		j;
+
+	j = 0;
+	while (j < i)
+	{
+		ft_putchar(str[j]);
+		++j;
+	}
+}
+
+void	ft_putzero(int n)
+{
+	while (n > 0)
+	{
+		ft_putchar('0');
+		--n;
+	}
+}
+
+void	ft_putspace(int n)
+{
+	while (n > 0)
+	{
+		ft_putchar(' ');
+		--n;
+	}
 }
