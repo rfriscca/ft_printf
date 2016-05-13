@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 16:42:43 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/11 16:18:12 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/13 13:13:55 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@
 char	flags(char c, char save)
 {
 	if (c == '-' && (save & 1) != 1)
-		save += 1;
+		save = 1;
 	else if (c == '0' && (save & 2) != 1)
-		save += 2;
+		save = 2;
 	else if (c == '+' && (save & 4) != 1)
-		save += 4;
+		save = 4;
 	else if (c == ' ' && (save & 8) != 1)
-		save += 8;
+		save = 8;
 	else if (c == '#' && (save & 16) != 1)
-		save += 16;
+		save = 16;
 	else if (c != '-' && c != '0' && c != '+' && c != ' ' && c != '#')
 		return (0);
 	return (save);
@@ -38,15 +38,20 @@ char	flags(char c, char save)
 
 int		ft_find_size(const char * restrict format, int *i)
 {
-	int size;
+	int 	size;
+	int		verif;
 
 	size = 0;
+	verif = 0;
 	while (format[*i + 1] >= '0' && format[*i + 1] <= '9')
 	{
 		size = size * 10;
 		size += format[*i + 1] - '0';
 		++*i;
+		++verif;
 	}
+	if (verif == 0)
+		return (-1);
 	return (size);
 }
 
@@ -68,7 +73,7 @@ int		event(const char * restrict format, va_list valist, int	i)
 	if (format[i + 1] == '.')
 		++i;
 	size_max = ft_find_size(format, &i);
-	ft_find_format(format[i + 1], valist);
+	ft_find_format(format[i + 1], valist, size_min, size_max);
 	i = i + 2;
 	return (i);
 }
@@ -84,9 +89,11 @@ int		ft_printf(const char * restrict format, ...)
 	{
 		if (format[i] == '%')
 			i = event(format, valist, i);
-		ft_putchar(format[i]);
 		if (format[i])
+		{
+			ft_putchar(format[i]);
 			++i;
+		}
 	}
 	va_end(valist);
 	return (0);
