@@ -1,19 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printchar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/10 14:25:13 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/20 15:26:46 by rfriscca         ###   ########.fr       */
+/*   Created: 2016/05/20 15:10:13 by rfriscca          #+#    #+#             */
+/*   Updated: 2016/05/20 15:20:13 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		main(void)
+void		ft_printchar(char c, t_stock stock)
 {
-	ft_printf("%-010s deuxieme test %.2u", "test", 4294967295);
-	return (0);
+	int		size;
+	int		spacenum;
+
+	size = 1;
+	spacenum = 0;
+	if (stock.size_min > 2147483647)
+		stock.size_min = 0;
+	if (stock.size_min > size)
+		spacenum = stock.size_min - size;
+	if ((stock.flags & 1) == 1)
+	{
+		ft_putchar(c);
+		ft_putspace(spacenum);
+	}
+	else
+	{
+		if ((stock.flags & 2) == 0)
+			ft_putspace(spacenum);
+		else
+			ft_putzero(spacenum);
+		ft_putchar(c);
+	}
 }

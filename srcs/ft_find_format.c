@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/11 12:56:20 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/20 14:57:01 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/20 15:24:44 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void		ft_find_format(char c, va_list valist, t_stock stock)
 	else if (c == 'd' || c == 'D' || c == 'i')
 		ft_printnbr(va_arg(valist, int), stock);
 	else if (c == 'c' || c == 'C')
-		ft_putchar(va_arg(valist, int));
+		ft_printchar(va_arg(valist, int), stock);
 	else if (c == 'u' || c == 'U')
 		ft_printunbr(va_arg(valist, unsigned int), stock);
 	else

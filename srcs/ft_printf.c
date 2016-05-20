@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 16:42:43 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/13 15:32:22 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/20 15:29:08 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@
 char	flags(char c, char save)
 {
 	if (c == '-' && (save & 1) != 1)
-		save = 1;
+		save += 1;
 	else if (c == '0' && (save & 2) != 1)
-		save = 2;
+		save += 2;
 	else if (c == '+' && (save & 4) != 1)
-		save = 4;
+		save += 4;
 	else if (c == ' ' && (save & 8) != 1)
-		save = 8;
+		save += 8;
 	else if (c == '#' && (save & 16) != 1)
-		save = 16;
+		save += 16;
 	else if (c != '-' && c != '0' && c != '+' && c != ' ' && c != '#')
 		return (0);
 	return (save);

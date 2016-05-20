@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 16:34:58 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/20 14:55:37 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/20 15:20:45 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void			ft_putspace(int n);
 void			ft_putzero(int n);
 void			ft_putstrlen(char *str, int i);
 void			ft_putunbr(unsigned int n);
+void			ft_printchar(char c, t_stock stock);
 t_stock			data_stock(int size_min, int size_max, char flags);
 
 #endif
