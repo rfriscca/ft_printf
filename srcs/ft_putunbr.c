@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putspace.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/13 14:29:05 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/13 15:02:49 by rfriscca         ###   ########.fr       */
+/*   Created: 2015/11/27 15:04:37 by rfriscca          #+#    #+#             */
+/*   Updated: 2016/05/20 14:56:35 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstrlen(char *str, int i)
+void	ft_putunbr(unsigned int n)
 {
-	int		j;
+	unsigned int	n2;
 
-	j = 0;
-	while (j < i)
+	n2 = n;
+	if (n2 > 9)
 	{
-		ft_putchar(str[j]);
-		++j;
+		ft_putunbr(n2 / 10);
+		ft_putunbr(n2 % 10);
 	}
-}
-
-void	ft_putspace(int n)
-{
-	while (n > 0)
-	{
-		ft_putchar(' ');
-		--n;
-	}
+	if (n2 <= 9)
+		ft_putchar(n2 + 48);
 }

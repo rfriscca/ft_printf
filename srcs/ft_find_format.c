@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/11 12:56:20 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/13 16:55:00 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/20 14:57:01 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,42 @@ void		ft_printnbr(int nbr, t_stock stock)
 	}
 }
 
+void		ft_printunbr(unsigned int nbr, t_stock stock)
+{
+	int		spacenum;
+	int		size;
+
+	spacenum = 0;
+	size = ft_nbrsize(nbr);
+	if (stock.size_min > 2147483647)
+		size = 0;
+	if (stock.size_min > size)
+		spacenum = stock.size_min - size;
+	if ((stock.flags & 1) == 0)
+	{
+		if ((stock.flags & 2) == 0)
+			ft_putspace(spacenum);
+		else
+			ft_putzero(spacenum);
+		ft_putunbr(nbr);
+	}
+	else
+	{
+		ft_putunbr(nbr);
+		ft_putspace(spacenum);
+	}
+}
+
 void		ft_find_format(char c, va_list valist, t_stock stock)
 {
 	if (c == 's')
 		ft_printstr(va_arg(valist, char*), stock);
 	else if (c == 'd' || c == 'D' || c == 'i')
 		ft_printnbr(va_arg(valist, int), stock);
+	else if (c == 'c' || c == 'C')
+		ft_putchar(va_arg(valist, int));
+	else if (c == 'u' || c == 'U')
+		ft_printunbr(va_arg(valist, unsigned int), stock);
 	else
 	{
 		ft_putstr("error");
