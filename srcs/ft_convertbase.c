@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_convertbase.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/10 14:25:13 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/24 13:44:18 by rfriscca         ###   ########.fr       */
+/*   Created: 2016/05/24 13:30:48 by rfriscca          #+#    #+#             */
+/*   Updated: 2016/05/24 13:45:43 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		main(void)
+void	ft_converttooctal(int num)
 {
-	ft_printf("%-010s deuxieme test %o", "test", 88);
-	return (0);
+	if (num)
+	{
+		ft_converttooctal(num / 8);
+		ft_putnbr(num % 8);
+	}
 }
