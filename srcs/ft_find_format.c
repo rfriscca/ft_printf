@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/11 12:56:20 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/24 16:12:10 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/24 16:30:24 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,7 @@ void		ft_printnbr(int nbr, t_stock stock)
 
 	spacenum = 0;
 	size = ft_nbrsize(nbr);
-	if (stock.size_min > 2147483647)
-		size = 0;
-	if (stock.size_min > size)
+	if (stock.size_min > size && stock.size_min < 2147483647)
 		spacenum = stock.size_min - size;
 	if ((stock.flags & 1) == 0)
 	{
@@ -57,10 +55,14 @@ void		ft_printnbr(int nbr, t_stock stock)
 			ft_putspace(spacenum);
 		else
 			ft_putzero(spacenum);
+		if ((stock.flags & 4) == 1 && nbr > 0)
+			ft_putchar('+');
 		ft_putnbr(nbr);
 	}
 	else
 	{
+		if ((stock.flags & 4) == 1 && nbr > 0)
+			ft_putchar('+');
 		ft_putnbr(nbr);
 		ft_putspace(spacenum);
 	}
