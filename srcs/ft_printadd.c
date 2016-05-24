@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printadd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/10 14:25:13 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/24 17:06:48 by rfriscca         ###   ########.fr       */
+/*   Created: 2016/05/24 16:52:33 by rfriscca          #+#    #+#             */
+/*   Updated: 2016/05/24 17:06:01 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		main(void)
+void	ft_printadd(t_stock stock, char c)
 {
-	ft_printf("%-010s deuxieme test %d", "test", 214231);
-	return (0);
+	if ((stock.flags & 4) != 0 && c == 'd')
+		ft_putchar('+');
+	if ((stock.flags & 16) != 0 && c == 'o')
+		ft_putchar('0');
 }

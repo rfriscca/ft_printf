@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 16:34:58 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/24 15:17:24 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/24 17:01:27 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void			ft_converttooctal(int num);
 void			ft_converttohex(int num, int caps);
 void			ft_printoctal(int nbr, t_stock stock);
 void			ft_printhex(int nbr, t_stock stock, int caps);
+void			ft_printadd(t_stock stock, char c);
 t_stock			data_stock(int size_min, int size_max, char flags);
 
 #endif
