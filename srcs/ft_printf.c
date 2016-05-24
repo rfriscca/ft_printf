@@ -6,14 +6,14 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 16:42:43 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/20 15:29:08 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/24 16:17:27 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
-** flags used binary format to save which flags are used 
+** flags used binary format to save which flags are used
 ** 1 = 1, 2 = 10, 4 = 100, 8 = 1000, 16 = 10000
 ** example : %-+ => 100 + 1 = 101 = 1 + 4 = 5
 ** if save = 5 then we'll know 2 flags are used - and + (or + and -)
@@ -36,9 +36,9 @@ char	flags(char c, char save)
 	return (save);
 }
 
-int		ft_find_size(const char * restrict format, int *i)
+int		ft_find_size(const char *restrict format, int *i)
 {
-	int 	size;
+	int		size;
 	int		verif;
 
 	size = 0;
@@ -55,7 +55,7 @@ int		ft_find_size(const char * restrict format, int *i)
 	return (size);
 }
 
-int		event(const char * restrict format, va_list valist, int	i)
+int		event(const char *restrict format, va_list valist, int i)
 {
 	int		size_min;
 	int		size_max;
@@ -80,7 +80,7 @@ int		event(const char * restrict format, va_list valist, int	i)
 	return (i);
 }
 
-int		ft_printf(const char * restrict format, ...)
+int		ft_printf(const char *restrict format, ...)
 {
 	va_list	valist;
 	int		i;

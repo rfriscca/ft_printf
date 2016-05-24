@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 15:04:37 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/24 16:09:28 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/24 16:13:44 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,4 @@ void	ft_printhex(int nbr, t_stock stock, int caps)
 		ft_converttohex(nbr, caps);
 		ft_putspace(spacenum);
 	}
-} 
+}

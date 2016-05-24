@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/11 12:56:20 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/24 16:07:53 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/24 16:12:10 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,8 @@ void		ft_find_format(char c, va_list valist, t_stock stock)
 		ft_printhex(va_arg(valist, int), stock, 0);
 	else if (c == 'X')
 		ft_printhex(va_arg(valist, int), stock, 1);
+	else if (c == '%')
+		ft_putchar('%');
 	else
 	{
 		ft_putstr("error");
