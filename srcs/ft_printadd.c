@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/24 16:52:33 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/27 13:16:48 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/27 17:09:39 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_printadd(t_stock stock, char c)
 {
 	if ((stock.flags & 4) != 0 && c == 'd')
 		ft_putchar('+');
+	else if ((stock.flags & 8) != 0 && c == 'd')
+		ft_putchar(' ');
 	else if ((stock.flags & 16) != 0 && c == 'o')
 		ft_putchar('0');
 	else if ((stock.flags & 16) != 0 && c == 'x')
