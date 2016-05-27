@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 15:04:37 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/24 17:02:03 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/27 13:06:22 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ void	ft_printoctal(int nbr, t_stock stock)
 	size = ft_nbrsizeoctal(nbr);
 	if (stock.size_min > size && stock.size_min <= 2147483647)
 		spacenum = stock.size_min - size;
-	if ((stock.flags & 16) == 1)
+	if ((stock.flags & 16) != 0)
 		spacenum -= 1;
 	if ((stock.flags & 1) == 0)
 	{
 		if ((stock.flags & 2) == 0)
 			ft_putspace(spacenum);
 		else
-			ft_putzero(spacenum);
+			ft_putzero(spacenum, stock, 'c');
 		ft_printadd(stock, 'o');
 		ft_converttooctal(nbr);
 	}
@@ -61,20 +61,23 @@ void	ft_printhex(int nbr, t_stock stock, int caps)
 
 	spacenum = 0;
 	size = ft_nbrsizehex(nbr);
-	if (stock.size_min > 2147483647)
-		size = 0;
-	if (stock.size_min > size)
+	if (stock.size_min > size && stock.size_min <= 2147483647)
 		spacenum = stock.size_min - size;
+	if ((stock.flags & 16) != 0)
+		spacenum -= 2;
 	if ((stock.flags & 1) == 0)
 	{
 		if ((stock.flags & 2) == 0)
 			ft_putspace(spacenum);
 		else
-			ft_putzero(spacenum);
+			ft_putzero(spacenum, stock, 'x');
+		if ((stock.flags & 2) == 0)
+			ft_printadd(stock, 'x');
 		ft_converttohex(nbr, caps);
 	}
 	else
 	{
+		ft_printadd(stock, 'x');
 		ft_converttohex(nbr, caps);
 		ft_putspace(spacenum);
 	}

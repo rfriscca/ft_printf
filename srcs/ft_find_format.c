@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/11 12:56:20 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/24 17:01:46 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/27 12:56:48 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void		ft_printstr(char *str, t_stock stock)
 		if ((stock.flags & 2) == 0)
 			ft_putspace(spacenum);
 		else
-			ft_putzero(spacenum);
+			ft_putzero(spacenum, stock, 'c');
 		ft_putstrlen(str, size);
 	}
 }
@@ -56,7 +56,7 @@ void		ft_printnbr(int nbr, t_stock stock)
 		if ((stock.flags & 2) == 0)
 			ft_putspace(spacenum);
 		else
-			ft_putzero(spacenum);
+			ft_putzero(spacenum, stock, 'c');
 		ft_printadd(stock, 'd');
 		ft_putnbr(nbr);
 	}
@@ -84,7 +84,7 @@ void		ft_printunbr(unsigned int nbr, t_stock stock)
 		if ((stock.flags & 2) == 0)
 			ft_putspace(spacenum);
 		else
-			ft_putzero(spacenum);
+			ft_putzero(spacenum, stock, 'c');
 		ft_putunbr(nbr);
 	}
 	else

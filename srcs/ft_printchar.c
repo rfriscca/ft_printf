@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/20 15:10:13 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/20 15:20:13 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/27 13:00:02 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void		ft_printchar(char c, t_stock stock)
 		if ((stock.flags & 2) == 0)
 			ft_putspace(spacenum);
 		else
-			ft_putzero(spacenum);
+			ft_putzero(spacenum, stock, 'c');
 		ft_putchar(c);
 	}
 }

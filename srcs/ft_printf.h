@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 16:34:58 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/24 17:01:27 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/27 12:59:39 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int				ft_nbrsizeoctal(int nbr);
 int				ft_nbrsizehex(int nbr);
 void			ft_find_format(char c, va_list valist, t_stock stock);
 void			ft_putspace(int n);
-void			ft_putzero(int n);
+void			ft_putzero(int n, t_stock stock, char c);
 void			ft_putstrlen(char *str, int i);
 void			ft_putunbr(unsigned int n);
 void			ft_printchar(char c, t_stock stock);

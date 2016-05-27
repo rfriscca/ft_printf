@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/13 14:29:05 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/24 16:13:14 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/27 12:58:43 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ void	ft_putstrlen(char *str, int i)
 	}
 }
 
-void	ft_putzero(int n)
+void	ft_putzero(int n, t_stock stock, char c)
 {
+	if (c == 'x')
+		ft_printadd(stock, 'x');
 	while (n > 0)
 	{
 		ft_putchar('0');
