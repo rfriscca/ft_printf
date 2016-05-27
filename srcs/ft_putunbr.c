@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 15:04:37 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/27 13:06:22 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/27 13:17:20 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_printoctal(int nbr, t_stock stock)
 	}
 }
 
-void	ft_printhex(int nbr, t_stock stock, int caps)
+void	ft_printhex(int nbr, t_stock stock)
 {
 	int		spacenum;
 	int		size;
@@ -73,12 +73,12 @@ void	ft_printhex(int nbr, t_stock stock, int caps)
 			ft_putzero(spacenum, stock, 'x');
 		if ((stock.flags & 2) == 0)
 			ft_printadd(stock, 'x');
-		ft_converttohex(nbr, caps);
+		ft_converttohex(nbr, 0);
 	}
 	else
 	{
 		ft_printadd(stock, 'x');
-		ft_converttohex(nbr, caps);
+		ft_converttohex(nbr, 0);
 		ft_putspace(spacenum);
 	}
 }
