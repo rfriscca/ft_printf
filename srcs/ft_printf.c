@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 16:42:43 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/27 14:14:23 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/27 14:19:49 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,35 +80,6 @@ int		event(const char *restrict format, va_list valist, int i)
 	return (i);
 }
 
-void	check_str(const char *restrict format)
-{
-	int		i;
-	int		save;
-	int		size_min;
-	int		size_max;
-
-	i = 0;
-	save = 0;
-	size_min = 0;
-	size_max = 0;
-	while (format[i])
-	{
-		if (format[i] == '%')
-		{
-			while (flags(format[i + 1], save))
-				++i;
-			size_min = ft_find_size(format, &i);
-			if (format[i + 1] == '.')
-				++i;
-			size_max = ft_find_size(format, &i);
-			if (format[i + 1] == 'S')
-				exit(1);
-			i += 2;
-		}
-		++i;
-	}
-}
-
 int		ft_printf(const char *restrict format, ...)
 {
 	va_list	valist;
@@ -116,7 +87,6 @@ int		ft_printf(const char *restrict format, ...)
 
 	i = 0;
 	va_start(valist, format);
-	check_str(format);
 	while (format[i])
 	{
 		if (format[i] == '%')

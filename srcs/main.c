@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/10 14:25:13 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/27 13:24:54 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/27 14:15:30 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ int		main(void)
 {
 	int		test[2] = {1, 2};
 
-	ft_printf("%-010s deuxieme test %S", "test", test);
+	ft_printf("%-010s deuxieme test %#020.39 S", "test", test);
 	return (0);
 }
