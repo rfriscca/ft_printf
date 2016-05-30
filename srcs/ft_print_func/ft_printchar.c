@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_printchar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/27 15:04:37 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/30 16:05:25 by rfriscca         ###   ########.fr       */
+/*   Created: 2016/05/20 15:10:13 by rfriscca          #+#    #+#             */
+/*   Updated: 2016/05/30 15:55:28 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putunbr(unsigned int n)
+void		ft_printchar(char c, t_stock stock)
 {
-	unsigned int	n2;
+	int		size;
+	int		spacenum;
 
-	n2 = n;
-	if (n2 > 9)
+	size = 1;
+	spacenum = 0;
+	if (stock.size_min > 2147483647)
+		stock.size_min = 0;
+	if (stock.size_min > size)
+		spacenum = stock.size_min - size;
+	if ((stock.flags & 1) == 1)
 	{
-		ft_putunbr(n2 / 10);
-		ft_putunbr(n2 % 10);
+		ft_putchar(c);
+		ft_putspace(spacenum);
 	}
-	if (n2 <= 9)
-		ft_putchar(n2 + 48);
+	else
+	{
+		if ((stock.flags & 2) == 0)
+			ft_putspace(spacenum);
+		else
+			ft_putzero(spacenum, stock, 'c');
+		ft_putchar(c);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 16:34:58 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/27 13:15:57 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/05/30 16:31:30 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <unistd.h>
 # include "libft.h"
 
-
 // delete this later
 # include <stdio.h>
 
@@ -29,6 +28,8 @@ typedef struct	s_stock
 	char		flags;
 }				t_stock;
 
+# include "ft_print_func.h"
+
 int				ft_printf(char const * restrict format, ...);
 int				ft_nbrsize(int nbr);
 int				ft_nbrsizeoctal(int nbr);
@@ -38,13 +39,10 @@ void			ft_putspace(int n);
 void			ft_putzero(int n, t_stock stock, char c);
 void			ft_putstrlen(char *str, int i);
 void			ft_putunbr(unsigned int n);
-void			ft_printchar(char c, t_stock stock);
 void			ft_converttooctal(int num);
 void			ft_converttohex(int num, int caps);
-void			ft_printoctal(int nbr, t_stock stock);
-void			ft_printhex(int nbr, t_stock stock);
-void			ft_printhexcaps(int nbr, t_stock stock);
 void			ft_printadd(t_stock stock, char c);
+void			ft_printwstr(wchar_t *str, t_stock stock);
 t_stock			data_stock(int size_min, int size_max, char flags);
 
 #endif
