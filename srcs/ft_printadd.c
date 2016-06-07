@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/24 16:52:33 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/07 13:51:40 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/07 15:47:12 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ void	ft_printadd(t_stock stock, char c)
 		ft_putstr("0x");
 	else if ((stock.flags & 16) != 0 && c == 'X')
 		ft_putstr("0X");
-	if (stock.size_max > 0 && c == 'd')
+	if (stock.size_max > 0 && (c == 'd' || c == 'u'))
 		ft_putzero(stock.size_max, stock, 'd');
 }

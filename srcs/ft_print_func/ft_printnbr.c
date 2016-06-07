@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/30 16:11:44 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/07 13:58:01 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/07 16:11:35 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int		printnbr_expansion(int size_max, int size)
 {
 	if (size_max > size)
 		size_max -= size;
+	else
+		size_max = 0;
 	return (size_max);
 }
 
@@ -24,13 +26,13 @@ void	ft_printnbr(int nbr, t_stock stock)
 	int		spacenum;
 	int		size;
 
-	spacenum = 0;
 	size = ft_nbrsize(nbr);
+	stock.size_max = printnbr_expansion(stock.size_max, size);
+	spacenum = 0 - stock.size_max;
 	if (stock.size_min > size && stock.size_min <= 2147483647)
-		spacenum = stock.size_min - size;
+		spacenum += stock.size_min - size;
 	if ((stock.flags & 4) == 1)
 		spacenum -= 1;
-	stock.size_max = printnbr_expansion(stock.size_max, size);
 	if ((stock.flags & 1) == 0)
 	{
 		if ((stock.flags & 2) == 0)
