@@ -6,11 +6,18 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/30 16:11:44 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/30 16:32:33 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/07 13:58:01 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int		printnbr_expansion(int size_max, int size)
+{
+	if (size_max > size)
+		size_max -= size;
+	return (size_max);
+}
 
 void	ft_printnbr(int nbr, t_stock stock)
 {
@@ -23,6 +30,7 @@ void	ft_printnbr(int nbr, t_stock stock)
 		spacenum = stock.size_min - size;
 	if ((stock.flags & 4) == 1)
 		spacenum -= 1;
+	stock.size_max = printnbr_expansion(stock.size_max, size);
 	if ((stock.flags & 1) == 0)
 	{
 		if ((stock.flags & 2) == 0)
