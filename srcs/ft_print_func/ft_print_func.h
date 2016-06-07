@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/30 15:54:00 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/30 16:32:02 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/07 12:59:54 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 # define FT_PRINT_FUNC_H
 
+void	ft_putwchar(wchar_t c);
+void	ft_printwchar(wchar_t c, t_stock stock);
 void	ft_printchar(char c, t_stock stock);
 void	ft_printhexcaps(int nbr, t_stock stock);
 void	ft_printoctal(int nbr, t_stock stock);

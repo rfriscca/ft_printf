@@ -1,53 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printwstr.c                                     :+:      :+:    :+:   */
+/*   ft_printwchar.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/30 15:30:58 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/07 12:52:12 by rfriscca         ###   ########.fr       */
+/*   Created: 2016/06/07 12:55:53 by rfriscca          #+#    #+#             */
+/*   Updated: 2016/06/07 12:59:28 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_wstrlen(wchar_t *str)
-{
-	int		i;
-
-	i = 0;
-	while (str[i])
-		++i;
-	return (i);
-}
-
-void	ft_putwstrlen(wchar_t *str, int size)
-{
-	int		i;
-
-	i = 0;
-	while (i < size && str[i])
-	{
-		ft_putwchar(str[i]);
-		++i;
-	}
-}
-
-void	ft_printwstr(wchar_t *str, t_stock stock)
+void	ft_printwchar(wchar_t c, t_stock stock)
 {
 	int		size;
 	int		spacenum;
 
-	size = ft_wstrlen(str);
+	size = 1;
 	spacenum = 0;
-	if (stock.size_max < size && stock.size_max != -1)
-		size = stock.size_max;
-	if (stock.size_min > size && stock.size_min <= 2147483647)
+	if (stock.size_min > size && stock.size_min < 2147483647)
 		spacenum = stock.size_min - size;
 	if ((stock.flags & 1) == 1)
 	{
-		ft_putwstrlen(str, size);
+		ft_putwchar(c);
 		ft_putspace(spacenum);
 	}
 	else
@@ -56,6 +32,6 @@ void	ft_printwstr(wchar_t *str, t_stock stock)
 			ft_putspace(spacenum);
 		else
 			ft_putzero(spacenum, stock, 'c');
-		ft_putwstrlen(str, size);
+		ft_putwchar(c);
 	}
 }

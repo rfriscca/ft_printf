@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/30 15:47:20 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/30 15:57:11 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/07 13:03:13 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_printoctal(int nbr, t_stock stock)
 {
 	int		spacenum;
 	int		size;
-	
+
 	spacenum = 0;
 	size = ft_nbrsizeoctal(nbr);
 	if (stock.size_min > size && stock.size_min <= 2147483647)
