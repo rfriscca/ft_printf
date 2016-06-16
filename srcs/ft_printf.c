@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 16:42:43 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/14 14:49:05 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/16 14:41:10 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int		event(const char *restrict format, va_list valist, int i)
 		++i;
 	size_max = ft_find_size(format, &i);
 	stock = data_stock(size_min, size_max, save);
-	ft_find_format(format + i + 1, valist, stock);
+	ft_find_format(format + i + 1, valist, stock, &i);
 	i = i + 2;
 	return (i);
 }

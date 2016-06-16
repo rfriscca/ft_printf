@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/11 12:56:20 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/14 15:34:37 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/16 14:41:57 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ void		ft_hh_length(char c, va_list valist, t_stock stock)
 {
 	if (c == 'd' || c == 'D' || c == 'i')
 		ft_printhhnbr(va_arg(valist, int), stock);
+	if (c == 'u' || c == 'U')
+		ft_printhhunbr(va_arg(valist, unsigned int), stock);
+	if (c == 'x')
+		ft_printhhhex(va_arg(valist, int), stock);
 }
 
 void		ft_h_length(char c, va_list valist, t_stock stock)
@@ -47,13 +51,17 @@ void		ft_h_length(char c, va_list valist, t_stock stock)
 }
 
 void		ft_find_format(char const *restrict format, va_list valist,
-		t_stock stock)
+		t_stock stock, int *i)
 {
 	if (format[0] == 'h')
 	{
 		if (format[1] == 'h')
+		{
 			ft_hh_length(format[2], valist, stock);
+			++*i;
+		}
 		ft_h_length(format[1], valist, stock);
+		++*i;
 	}
 	else
 		ft_no_length(format[0], valist, stock);

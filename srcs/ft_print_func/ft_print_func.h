@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/30 15:54:00 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/14 15:31:43 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/16 14:32:27 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ void	ft_printstr(char *str, t_stock stock);
 void	ft_printnbr(int nbr, t_stock stock);
 void	ft_printunbr(unsigned int nbr, t_stock stock);
 void	ft_printhhnbr(char nbr, t_stock stock);
+void	ft_printhhunbr(unsigned char nbr, t_stock stock);
+void	ft_printhhhex(char nbr, t_stock stock);
 
 #endif
