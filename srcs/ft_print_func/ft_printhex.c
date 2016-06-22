@@ -6,13 +6,13 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/30 16:00:08 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/30 16:04:50 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/22 13:53:13 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printhex(int nbr, t_stock stock)
+void	ft_printhex(uintmax_t nbr, t_stock stock)
 {
 	int		spacenum;
 	int		size;

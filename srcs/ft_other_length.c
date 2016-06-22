@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_other_length.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/10 14:25:13 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/22 14:59:05 by rfriscca         ###   ########.fr       */
+/*   Created: 2016/06/16 15:55:48 by rfriscca          #+#    #+#             */
+/*   Updated: 2016/06/22 14:34:26 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		main(void)
+void	ft_l_length(char c, va_list valist, t_stock stock)
 {
-	int		test[2] = {1, 2};
-
-	ft_printf("%hhi deuxieme test %C", 21, L'た');
-	return (0);
+	if (c == 'd' || c == 'i')
+		ft_printnbr((LI)va_arg(valist, LI), stock);
+	if (c == 'u')
+		ft_printunbr((ULI)va_arg(valist, ULI), stock);
+	if (c == 'o')
+		ft_printoctal((ULI)va_arg(valist, ULI), stock);
+	if (c == 'x')
+		ft_printhex((ULI)va_arg(valist, ULI), stock);
+	if (c == 'X')
+		ft_printhexcaps((ULI)va_arg(valist, ULI), stock);
 }

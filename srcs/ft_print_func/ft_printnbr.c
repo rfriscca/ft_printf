@@ -6,11 +6,31 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/30 16:11:44 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/14 15:22:06 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/22 13:42:20 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	ft_putintmaxnbr(intmax_t n)
+{
+	uintmax_t	n2;
+
+	if (n < 0)
+	{
+		ft_putchar('-');
+		n2 = -n;
+	}
+	else
+		n2 = n;
+	if (n2 > 9)
+	{
+		ft_putintmaxnbr(n2 / 10);
+		ft_putintmaxnbr(n2 % 10);
+	}
+	else
+		ft_putchar(n2 + 48);
+}
 
 int		printnbr_expansion(int size_max, int size)
 {
@@ -21,7 +41,7 @@ int		printnbr_expansion(int size_max, int size)
 	return (size_max);
 }
 
-void	ft_printnbr(int nbr, t_stock stock)
+void	ft_printnbr(intmax_t nbr, t_stock stock)
 {
 	int		spacenum;
 	int		size;
@@ -40,12 +60,12 @@ void	ft_printnbr(int nbr, t_stock stock)
 		else
 			ft_putzero(spacenum, stock, 'd');
 		ft_printadd(stock, 'd');
-		ft_putnbr(nbr);
+		ft_putintmaxnbr(nbr);
 	}
 	else
 	{
 		ft_printadd(stock, 'd');
-		ft_putnbr(nbr);
+		ft_putintmaxnbr(nbr);
 		ft_putspace(spacenum);
 	}
 }

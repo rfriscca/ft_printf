@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 16:34:58 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/16 14:42:13 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/22 14:55:24 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
 
 // delete this later
 # include <stdio.h>
+
+# define LI long int
+# define ULI unsigned long int
+# define LLI long long int
+# define ULLI unsigned long long int
 
 typedef struct	s_stock
 {
@@ -39,11 +44,12 @@ void			ft_find_format(char const *restrict format, va_list valist,
 void			ft_putspace(int n);
 void			ft_putzero(int n, t_stock stock, char c);
 void			ft_putstrlen(char *str, int i);
-void			ft_putunbr(unsigned int n);
-void			ft_converttooctal(int num);
-void			ft_converttohex(int num, int caps);
+void			ft_putunbr(uintmax_t n);
+void			ft_converttooctal(uintmax_t num);
+void			ft_converttohex(uintmax_t num, int caps);
 void			ft_printadd(t_stock stock, char c);
 void			ft_printwstr(wchar_t *str, t_stock stock);
+void			ft_l_length(char c, va_list valist, t_stock stock);
 t_stock			data_stock(int size_min, int size_max, char flags);
 
 #endif

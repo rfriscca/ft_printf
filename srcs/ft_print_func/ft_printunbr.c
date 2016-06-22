@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/30 16:16:54 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/08 12:31:36 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/22 13:43:54 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		printunbr_expansion(int size_max, int size)
 	return (size_max);
 }
 
-void	ft_printunbr(unsigned int nbr, t_stock stock)
+void	ft_printunbr(uintmax_t nbr, t_stock stock)
 {
 	int		spacenum;
 	int		size;

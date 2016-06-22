@@ -6,22 +6,19 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 15:04:37 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/05/30 16:05:25 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/22 13:44:48 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putunbr(unsigned int n)
+void	ft_putunbr(uintmax_t n)
 {
-	unsigned int	n2;
-
-	n2 = n;
-	if (n2 > 9)
+	if (n > 9)
 	{
-		ft_putunbr(n2 / 10);
-		ft_putunbr(n2 % 10);
+		ft_putunbr(n / 10);
+		ft_putunbr(n % 10);
 	}
-	if (n2 <= 9)
-		ft_putchar(n2 + 48);
+	if (n <= 9)
+		ft_putchar(n + 48);
 }

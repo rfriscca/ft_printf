@@ -6,13 +6,13 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/24 13:30:48 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/16 14:28:55 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/22 13:54:09 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_converttooctal(int num)
+void	ft_converttooctal(uintmax_t num)
 {
 	if (num)
 	{
@@ -53,7 +53,7 @@ void	ft_hexcaps(int num)
 		ft_putchar('F');
 }
 
-void	ft_converttohex(int num, int caps)
+void	ft_converttohex(uintmax_t num, int caps)
 {
 	if (num)
 	{
