@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 16:42:43 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/22 14:56:05 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/28 14:19:46 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ int		ft_find_size(const char *restrict format, int *i)
 	return (size);
 }
 
-int		event(const char *restrict format, va_list valist, int i)
+int		event(const char *restrict format, va_list valist, int i,
+		t_stock *stock)
 {
 	int		size_min;
 	int		size_max;
 	char	save;
-	t_stock	stock;
 
 	save = 0;
 	size_min = 0;
@@ -74,7 +74,7 @@ int		event(const char *restrict format, va_list valist, int i)
 	if (format[i + 1] == '.')
 		++i;
 	size_max = ft_find_size(format, &i);
-	stock = data_stock(size_min, size_max, save);
+	*stock = data_stock(size_min, size_max, save);
 	ft_find_format(format + i + 1, valist, stock, &i);
 	i = i + 2;
 	return (i);
@@ -84,19 +84,22 @@ int		ft_printf(const char *restrict format, ...)
 {
 	va_list	valist;
 	int		i;
+	t_stock	stock;
 
 	i = 0;
+	stock.i = 0;
 	va_start(valist, format);
 	while (format[i])
 	{
 		if (format[i] == '%')
-			i = event(format, valist, i);
+			i = event(format, valist, i, &stock);
 		if (format[i])
 		{
 			ft_putchar(format[i]);
+			++stock.i;
 			++i;
 		}
 	}
 	va_end(valist);
-	return (0);
+	return (stock.i);
 }

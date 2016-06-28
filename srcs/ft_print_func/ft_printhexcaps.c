@@ -6,30 +6,30 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/27 13:09:23 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/22 13:53:19 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/28 14:41:31 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printhexcaps(uintmax_t nbr, t_stock stock)
+void	ft_printhexcaps(uintmax_t nbr, t_stock *stock)
 {
 	int		spacenum;
 	int		size;
 
 	spacenum = 0;
 	size = ft_nbrsizehex(nbr);
-	if (stock.size_min > size && stock.size_min <= 2147483647)
-		spacenum = stock.size_min - size;
-	if ((stock.flags & 16) != 0)
+	if (stock->size_min > size && stock->size_min <= 2147483647)
+		spacenum = stock->size_min - size;
+	if ((stock->flags & 16) != 0)
 		spacenum -= 2;
-	if ((stock.flags & 1) == 0)
+	if ((stock->flags & 1) == 0)
 	{
-		if ((stock.flags & 2) == 0)
+		if ((stock->flags & 2) == 0)
 			ft_putspace(spacenum);
 		else
 			ft_putzero(spacenum, stock, 'X');
-		if ((stock.flags & 2) == 0)
+		if ((stock->flags & 2) == 0)
 			ft_printadd(stock, 'X');
 		ft_converttohex(nbr, 1);
 	}
@@ -39,4 +39,5 @@ void	ft_printhexcaps(uintmax_t nbr, t_stock stock)
 		ft_converttohex(nbr, 1);
 		ft_putspace(spacenum);
 	}
+	stock->i += spacenum + size;
 }

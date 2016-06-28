@@ -6,13 +6,13 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/11 12:56:20 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/22 15:00:53 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/28 14:20:39 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_no_length2(char c, va_list valist, t_stock stock)
+void		ft_no_length2(char c, va_list valist, t_stock *stock)
 {
 	if (c == '%')
 		ft_putchar('%');
@@ -24,7 +24,7 @@ void		ft_no_length2(char c, va_list valist, t_stock stock)
 		ft_l_length(c + 32, valist, stock);
 }
 
-void		ft_no_length(char c, va_list valist, t_stock stock)
+void		ft_no_length(char c, va_list valist, t_stock *stock)
 {
 	if (c == 's')
 		ft_printstr(va_arg(valist, char*), stock);
@@ -50,7 +50,7 @@ void		ft_no_length(char c, va_list valist, t_stock stock)
 	}
 }
 
-void		ft_h_length(char c, va_list valist, t_stock stock)
+void		ft_h_length(char c, va_list valist, t_stock *stock)
 {
 	if (c == 'd' || c == 'i')
 		ft_printnbr((short int)va_arg(valist, int), stock);
@@ -71,7 +71,7 @@ void		ft_h_length(char c, va_list valist, t_stock stock)
 	}
 }
 
-void		ft_hh_length(char c, va_list valist, t_stock stock)
+void		ft_hh_length(char c, va_list valist, t_stock *stock)
 {
 	if (c == 'd' || c == 'i')
 		ft_printnbr((char)va_arg(valist, int), stock);
@@ -93,7 +93,7 @@ void		ft_hh_length(char c, va_list valist, t_stock stock)
 }
 
 void		ft_find_format(char const *restrict format, va_list valist,
-		t_stock stock, int *i)
+		t_stock *stock, int *i)
 {
 	if (format[0] == 'h')
 	{

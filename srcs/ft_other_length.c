@@ -6,13 +6,13 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/16 15:55:48 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/27 16:09:27 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/28 14:20:50 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_l_length(char c, va_list valist, t_stock stock)
+void	ft_l_length(char c, va_list valist, t_stock *stock)
 {
 	if (c == 'd' || c == 'i')
 		ft_printnbr((LI)va_arg(valist, LI), stock);

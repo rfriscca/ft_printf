@@ -6,7 +6,7 @@
 /*   By: rfriscca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 16:34:58 by rfriscca          #+#    #+#             */
-/*   Updated: 2016/06/22 14:55:24 by rfriscca         ###   ########.fr       */
+/*   Updated: 2016/06/28 14:21:38 by rfriscca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct	s_stock
 {
 	int			size_min;
 	int			size_max;
+	int			i;
 	char		flags;
 }				t_stock;
 
@@ -40,16 +41,16 @@ int				ft_nbrsize(int nbr);
 int				ft_nbrsizeoctal(int nbr);
 int				ft_nbrsizehex(int nbr);
 void			ft_find_format(char const *restrict format, va_list valist,
-		t_stock stock, int *i);
+		t_stock *stock, int *i);
 void			ft_putspace(int n);
-void			ft_putzero(int n, t_stock stock, char c);
+void			ft_putzero(int n, t_stock *stock, char c);
 void			ft_putstrlen(char *str, int i);
 void			ft_putunbr(uintmax_t n);
 void			ft_converttooctal(uintmax_t num);
 void			ft_converttohex(uintmax_t num, int caps);
-void			ft_printadd(t_stock stock, char c);
-void			ft_printwstr(wchar_t *str, t_stock stock);
-void			ft_l_length(char c, va_list valist, t_stock stock);
+void			ft_printadd(t_stock *stock, char c);
+void			ft_printwstr(wchar_t *str, t_stock *stock);
+void			ft_l_length(char c, va_list valist, t_stock *stock);
 t_stock			data_stock(int size_min, int size_max, char flags);
 
 #endif
